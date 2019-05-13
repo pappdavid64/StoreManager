@@ -53,7 +53,7 @@ public class SearchMenuController {
         MenuLoader.showMainMenu();
     }
 
-    @FXML
+    //@FXML
     public void search()
     {
         resultListView.setItems(
@@ -63,7 +63,7 @@ public class SearchMenuController {
         );
     }
 
-    @FXML
+   // @FXML
     public void modify()
     {
         if(resultListView.getSelectionModel().getSelectedItem() != null)
@@ -94,7 +94,7 @@ public class SearchMenuController {
 
     }
 
-    @FXML
+   // @FXML
     public void delete()
     {
         if(resultListView.getSelectionModel().getSelectedItem() != null)
@@ -107,7 +107,7 @@ public class SearchMenuController {
     }
 
 
-    @FXML
+   // @FXML
     public void add()
     {
         if(
@@ -125,7 +125,7 @@ public class SearchMenuController {
 
     }
 
-    @FXML
+    //@FXML
     public void sell()
     {
         if(resultListView.getSelectionModel().getSelectedItem() != null) {

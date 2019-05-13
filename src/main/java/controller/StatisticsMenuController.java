@@ -10,18 +10,18 @@ import util.QueryBuilder;
 public class StatisticsMenuController {
 
     @FXML
-    private void back()
-    {
-        MenuLoader.showMainMenu();
-    }
-
-    @FXML
     public void initialize()
     {
         searchTypeChoiceBox.setItems(FXCollections.observableArrayList("name", "type"));
     }
 
     @FXML
+    private void back()
+    {
+        MenuLoader.showMainMenu();
+    }
+
+
     private void setSummaryLabel()
     {
         int sumPrice = 0;
@@ -37,7 +37,6 @@ public class StatisticsMenuController {
             );
     }
 
-    @FXML
     public void search()
     {
         QueryBuilder<SoldItems> firstQuery =
