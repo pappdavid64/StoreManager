@@ -10,33 +10,62 @@ import util.DBConnector;
 import java.util.Date;
 
 
-
+/**
+ * Controller class or the search menu
+ */
 public class SearchMenuController {
 
+    /**
+     * The result list view of the view, which contains the result of the search
+     */
     @FXML
     private ListView<Items> resultListView;
 
+    /**
+     * The name text field of the view
+     */
     @FXML
     private TextField nameTextField;
 
+    /**
+     * The quantity text field of the view
+     */
     @FXML
     private TextField quantityTextField;
 
+    /**
+     * The price text field of the view
+     */
     @FXML
     private TextField priceTextField;
 
+    /**
+     * The type text field of the view
+     */
     @FXML
     private TextField typeTextField;
 
+    /**
+     * The search text field of the view
+     */
     @FXML
     private TextField searchTextField;
 
+    /**
+     * The search type choice box of the view
+     */
     @FXML
     private ChoiceBox<String> searchChoiceBox;
 
+    /**
+     * The operator choice box of the view
+     */
     @FXML
     private ChoiceBox<String> mightChoiceBox;
 
+    /**
+     * Initializes the resultLitView, the searchChoiceBox and the mightChoiceBox
+     */
     @FXML
     public void initialize()
     {
@@ -47,13 +76,18 @@ public class SearchMenuController {
 
     }
 
+    /**
+     * Navigates back to the main menu
+     */
     @FXML
     private void back()
     {
         MenuLoader.showMainMenu();
     }
 
-    //@FXML
+    /**
+     * Searches in the database by the given conditions
+     */
     public void search()
     {
         resultListView.setItems(
@@ -63,7 +97,9 @@ public class SearchMenuController {
         );
     }
 
-   // @FXML
+    /**
+     * Modifies the selected item by the given name and/or quantity and/or price and/or type
+     */
     public void modify()
     {
         if(resultListView.getSelectionModel().getSelectedItem() != null)
@@ -94,7 +130,9 @@ public class SearchMenuController {
 
     }
 
-   // @FXML
+    /**
+     * Delete the selected item
+     */
     public void delete()
     {
         if(resultListView.getSelectionModel().getSelectedItem() != null)
@@ -106,8 +144,9 @@ public class SearchMenuController {
 
     }
 
-
-   // @FXML
+    /**
+     * Add the item to the database if the name, quantity, price, type field is filled correctly
+     */
     public void add()
     {
         if(
@@ -125,7 +164,9 @@ public class SearchMenuController {
 
     }
 
-    //@FXML
+    /**
+     * Modifies the selected item quantities by the number in the quantity text field
+     */
     public void sell()
     {
         if(resultListView.getSelectionModel().getSelectedItem() != null) {

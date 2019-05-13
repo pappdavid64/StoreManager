@@ -1,12 +1,25 @@
 package model;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Class for get statistics from the searches in the SearchMenu
+ */
 public class Statistics {
+    /**
+     * The summary of quantity of the sold items in the found items
+     */
     private int sumQuantity;
+
+    /**
+     * The income from the found items
+     */
     private int income;
 
+    /**
+     * The constructor of the class
+     * @param soldItems the sold items from the search
+     */
     public Statistics(ObservableList<SoldItems> soldItems)
     {
         sumQuantity = 0;
@@ -18,11 +31,19 @@ public class Statistics {
         }
     }
 
+    /**
+     * Gets the sumQuantity
+     * @return the sumQuantity
+     */
     public int getSumQuantity()
     {
         return sumQuantity;
     }
 
+    /**
+     * Gets the income
+     * @return the income
+     */
     public int getIncome()
     {
         return income;

@@ -12,17 +12,17 @@ import java.util.List;
 public class QueryBuilder<T extends ItemEntity> {
 
     /**
-      * The column name in the search
+      * The column name in the database which want to search in
       */
     private String column;
 
     /**
-      * The operator in the search
+      * The operator (lower, equal, bigger) for numbers in the search
       */
     private String operator;
 
     /**
-      * The filter in the search
+      * The filter text which we want to find in the database
       */
     private String text;
 
@@ -49,7 +49,7 @@ public class QueryBuilder<T extends ItemEntity> {
     /**
      * Sets the column field of the object
      * @param column the column name of the search
-     * @return this the actual object
+     * @return the actual object
      */
     public QueryBuilder<T> withColumn(String column)
     {
@@ -60,7 +60,7 @@ public class QueryBuilder<T extends ItemEntity> {
     /**
      * Sets the operator field of the object
      * @param operator the operator of the search
-     * @return this the actual object
+     * @return the actual object
      */
     public QueryBuilder<T> withOperator(String operator)
     {
@@ -71,7 +71,7 @@ public class QueryBuilder<T extends ItemEntity> {
     /**
      * Sets the text field of the object
      * @param text the filter of the search
-     * @return this the actual object
+     * @return the actual object
      */
     public QueryBuilder<T> withText(String text)
     {
@@ -82,7 +82,7 @@ public class QueryBuilder<T extends ItemEntity> {
     /**
      * Sets the queries field of the object
      * @param queries the another queries to concat
-     * @return this the actual object
+     * @return the actual object
      */
     public QueryBuilder<T> andQueries(List<QueryBuilder<T>> queries)
     {
@@ -93,7 +93,7 @@ public class QueryBuilder<T extends ItemEntity> {
     /**
      * Sets the queries field of the object
      * @param queries the another queries to concat
-     * @return this the actual object
+     * @return the actual object
      */
     public QueryBuilder<T> andQueries(QueryBuilder<T>... queries)
     {
@@ -132,7 +132,7 @@ public class QueryBuilder<T extends ItemEntity> {
 
     /**
      * Builds the query string
-     * return the query string
+     * @return the query string
      */
     private String buildQueryString()
     {
