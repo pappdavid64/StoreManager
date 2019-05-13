@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.SoldItems;
+import model.Statistics;
 import util.QueryBuilder;
 
 
@@ -24,16 +25,10 @@ public class StatisticsMenuController {
 
     private void setSummaryLabel()
     {
-        int sumPrice = 0;
-        int sumQuantity = 0;
-        for(SoldItems item : resultListView.getItems())
-        {
-            sumQuantity += item.getQuantity();
-            sumPrice += item.getPrice()*item.getQuantity();
-        }
+        Statistics stats = new Statistics(resultListView.getItems());
         summaryLabel.setText(
-                "All sold items quantity: " + sumQuantity + "\n" +
-                "Income from sold item: " + sumPrice
+                "All sold items quantity: " + stats.getSumQuantity() + "\n" +
+                "Income from sold item: " + stats.getIncome()
             );
     }
 

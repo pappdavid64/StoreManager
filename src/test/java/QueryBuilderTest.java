@@ -1,15 +1,10 @@
 import model.Items;
 import model.SoldItems;
-import org.junit.Test;
 import util.DBConnector;
 import util.QueryBuilder;
 
 import org.junit.*;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -51,14 +46,22 @@ public class QueryBuilderTest {
                 DBConnector.getEntityManager().createQuery(query3, Items.class).getResultList());
 
         String query4 = "SELECT s FROM SoldItems s WHERE s.quantity < 100";
+
         assertEquals(new QueryBuilder<SoldItems>(SoldItems.class).withColumn("quantity").withText("100").withOperator("<").build().getResultList(),
                 DBConnector.getEntityManager().createQuery(query4, SoldItems.class).getResultList());
         assertNotEquals(new QueryBuilder<SoldItems>(SoldItems.class).withColumn("quantity").withText("100").withOperator(">").build().getResultList(),
                 DBConnector.getEntityManager().createQuery(query4, SoldItems.class).getResultList());
-    }
 
+        String query5 = "SELECT s FROM SoldItems s WHERE s.name LIKE '%bre%' AND 2019-05-15 < Sold_date";
 
-    public static void main(String[] args) {
-        org.junit.runner.JUnitCore.main("QueryBuilderTest");
+        QueryBuilder<SoldItems> firstQuery = new QueryBuilder<SoldItems>(SoldItems.class).withColumn("name").withText("bre");
+        QueryBuilder<SoldItems> secondQuery = new QueryBuilder<SoldItems>(SoldItems.class).withColumn("soldDate").withText("2019-05-15").withOperator("<");
+        QueryBuilder<SoldItems> thirdQuery = new QueryBuilder<SoldItems>(SoldItems.class).withColumn("soldDate").withText("2019-05-12").withOperator(">");
+
+        assertEquals(new QueryBuilder<SoldItems>(SoldItems.class).andQueries(firstQuery, secondQuery).build().getResultList(),
+                DBConnector.getEntityManager().createQuery(query5, SoldItems.class).getResultList());
+        assertNotEquals(new QueryBuilder<SoldItems>(SoldItems.class).andQueries(firstQuery, secondQuery, thirdQuery).build().getResultList(),
+                DBConnector.getEntityManager().createQuery(query5, SoldItems.class).getResultList());
+
     }
 }
