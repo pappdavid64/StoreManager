@@ -11,7 +11,7 @@ import java.util.Date;
 
 
 /**
- * Controller class or the search menu
+ * Controller class of the search menu
  */
 public class SearchMenuController {
 
