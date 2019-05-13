@@ -157,7 +157,7 @@ public class Items implements ItemEntity {
     }
 
     /**
-     * The hasCode() of the Items class
+     * The hashCode() of the Items class
      */
     @Override
     public int hashCode() {

@@ -171,7 +171,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * The toString for the SoldItems class
+     * The toString() for the SoldItems class
      */
     @Override
     public String toString() {
@@ -185,7 +185,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * The equals for the SoldItems class
+     * The equals() for the SoldItems class
      */
     @Override
     public boolean equals(Object o) {
@@ -201,7 +201,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * The hasCode for the SoldItemsClass
+     * The hashCode() for the SoldItemsClass
      */
     @Override
     public int hashCode() {
