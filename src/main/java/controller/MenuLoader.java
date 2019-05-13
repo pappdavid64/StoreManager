@@ -4,12 +4,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import view.MainMenu;
 
 import java.io.IOException;
 
 public class MenuLoader {
     private static Stage primaryStage;
+
+    private static Logger logger = LoggerFactory.getLogger("Menu Loader Logger");
 
     public static void setPrimaryStage(Stage primaryStage)
     {
@@ -33,7 +37,7 @@ public class MenuLoader {
 
 
         } catch(IOException e) {
-
+            logger.error(e.getMessage());
         }
     }
 
@@ -54,7 +58,7 @@ public class MenuLoader {
 
 
         } catch(IOException e) {
-
+            logger.error(e.getMessage());
         }
     }
 
@@ -75,7 +79,7 @@ public class MenuLoader {
 
 
         } catch(IOException e) {
-
+            logger.error(e.getMessage());
         }
     }
 }

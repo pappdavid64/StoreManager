@@ -93,12 +93,11 @@ public class Items implements ItemEntity {
 
     @Override
     public String toString() {
-        return "Items{" +
-                "name='" + name + '\'' +
-                ", quantity=" + quantity +
+        return  name + " (" +
+                "quantity=" + quantity +
                 ", price=" + price +
                 ", type='" + type + '\'' +
                 ", id=" + id +
-                '}';
+                ")";
     }
 }

@@ -88,14 +88,13 @@ public class SoldItems implements ItemEntity {
 
     @Override
     public String toString() {
-        return "SoldItems{" +
-                "Id=" + Id +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
+        return  name + " (" +
+                "type='" + type + '\'' +
                 ", quantity=" + quantity +
                 ", price=" + price +
                 ", soldDate=" + soldDate +
-                '}';
+                "Id=" + Id +
+                ")";
     }
 
     @Override
