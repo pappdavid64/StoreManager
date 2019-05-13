@@ -6,49 +6,105 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Util class for building queries
+ */
 public class QueryBuilder<T extends ItemEntity> {
+
+    /**
+      * The column name in the search
+      */
     private String column;
+
+    /**
+      * The operator in the search
+      */
     private String operator;
+
+    /**
+      * The filter in the search
+      */
     private String text;
+
+    /**
+     * List of queries for concatenate multiply queries
+     */
     private List<QueryBuilder<T>> queries;
+
+    /**
+     * The class type of the item
+     */
     private Class<T> itemType;
 
+    /**
+     * Constructor of the QueryBuilder class
+     * @param itemType the class type of the item
+     */
     public QueryBuilder(Class<T> itemType)
     {
         this.itemType = itemType;
         queries = new ArrayList<>();
     }
 
+    /**
+     * Sets the column field of the object
+     * @param column the column name of the search
+     * @return this the actual object
+     */
     public QueryBuilder<T> withColumn(String column)
     {
         this.column = column;
         return this;
     }
 
+    /**
+     * Sets the operator field of the object
+     * @param operator the operator of the search
+     * @return this the actual object
+     */
     public QueryBuilder<T> withOperator(String operator)
     {
         this.operator = operator;
         return this;
     }
 
+    /**
+     * Sets the text field of the object
+     * @param text the filter of the search
+     * @return this the actual object
+     */
     public QueryBuilder<T> withText(String text)
     {
         this.text = text;
         return this;
     }
 
+    /**
+     * Sets the queries field of the object
+     * @param queries the another queries to concat
+     * @return this the actual object
+     */
     public QueryBuilder<T> andQueries(List<QueryBuilder<T>> queries)
     {
         this.queries.addAll(queries);
         return this;
     }
 
+    /**
+     * Sets the queries field of the object
+     * @param queries the another queries to concat
+     * @return this the actual object
+     */
     public QueryBuilder<T> andQueries(QueryBuilder<T>... queries)
     {
         this.queries.addAll(Arrays.asList(queries));
         return this;
     }
 
+    /**
+     * Builds the where condition of the search
+     * @return the where condition as string
+     */
     private String buildWhereString()
     {
         if(column == null || text == null)
@@ -74,6 +130,10 @@ public class QueryBuilder<T extends ItemEntity> {
 
     }
 
+    /**
+     * Builds the query string
+     * return the query string
+     */
     private String buildQueryString()
     {
         StringBuilder sb = new StringBuilder();
@@ -101,6 +161,10 @@ public class QueryBuilder<T extends ItemEntity> {
         return sb.toString();
     }
 
+    /**
+     * Builds the search
+     * @return the TypedQuery<T>
+     */
     public TypedQuery<T> build()
     {
         return DBConnector.getEntityManager().createQuery(buildQueryString(), itemType);
