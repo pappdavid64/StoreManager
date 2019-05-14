@@ -2,7 +2,8 @@ package controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +45,15 @@ public class MenuLoader {
             FXMLLoader loader = new FXMLLoader();
             MainMenu mm = new MainMenu();
             loader.setLocation(mm.getClass().getResource("/fxml/MainMenu.fxml"));
-            Pane mainMenu = (Pane) loader.load();
+            Pane mainMenu = loader.load();
+
+            BackgroundImage backgroundImage = new BackgroundImage(
+                    new Image("/Pictures/MainBackground.png", 600, 400, false, true),
+                    BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT
+            );
+
+            mainMenu.setBackground(new Background(backgroundImage));
 
             Scene scene = new Scene(mainMenu);
             primaryStage.setScene(scene);
@@ -53,7 +62,8 @@ public class MenuLoader {
 
 
 
-        } catch(IOException e) {
+        } catch(Exception e) {
+            logger.error("MainMenu.fxml could not found");
             logger.error(e.getMessage());
         }
     }
@@ -69,7 +79,7 @@ public class MenuLoader {
             FXMLLoader loader = new FXMLLoader();
             MainMenu mm = new MainMenu();
             loader.setLocation(mm.getClass().getResource("/fxml/SearchMenu.fxml"));
-            Pane searchMenu = (Pane) loader.load();
+            Pane searchMenu = loader.load();
 
             Scene scene = new Scene(searchMenu);
             primaryStage.setScene(scene);
@@ -78,7 +88,8 @@ public class MenuLoader {
 
 
 
-        } catch(IOException e) {
+        } catch(Exception e) {
+            logger.error("SearchMenu.fxml could not found");
             logger.error(e.getMessage());
         }
     }
@@ -94,7 +105,7 @@ public class MenuLoader {
             FXMLLoader loader = new FXMLLoader();
             MainMenu mm = new MainMenu();
             loader.setLocation(mm.getClass().getResource("/fxml/StatisticsMenu.fxml"));
-            Pane statisticsMenu = (Pane) loader.load();
+            Pane statisticsMenu = loader.load();
 
             Scene scene = new Scene(statisticsMenu);
             primaryStage.setScene(scene);
@@ -103,7 +114,8 @@ public class MenuLoader {
 
 
 
-        } catch(IOException e) {
+        } catch(Exception e) {
+            logger.error("StatisticsMenu.fxml could not found");
             logger.error(e.getMessage());
         }
     }
