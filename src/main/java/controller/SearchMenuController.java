@@ -89,7 +89,9 @@ public class SearchMenuController {
     public void search() {
         resultListView.setItems(
                 FXCollections.observableArrayList(
-                        DBConnector.search(searchChoiceBox.getValue(), mightChoiceBox.getValue(),searchTextField.getText())
+                        DBConnector.search(
+                                searchChoiceBox.getValue(), mightChoiceBox.getValue(),searchTextField.getText()
+                        )
                 )
         );
     }
@@ -104,15 +106,18 @@ public class SearchMenuController {
             }
 
             if(!quantityTextField.getText().equals("")) {
-                resultListView.getSelectionModel().getSelectedItem().setQuantity(Integer.valueOf(quantityTextField.getText()));
+                resultListView.getSelectionModel().getSelectedItem()
+                        .setQuantity(Integer.valueOf(quantityTextField.getText()));
             }
 
             if(!priceTextField.getText().equals("")) {
-                resultListView.getSelectionModel().getSelectedItem().setPrice(Integer.valueOf(priceTextField.getText()));
+                resultListView.getSelectionModel().getSelectedItem()
+                        .setPrice(Integer.valueOf(priceTextField.getText()));
             }
 
             if(!typeTextField.getText().equals("")) {
-                resultListView.getSelectionModel().getSelectedItem().setType(typeTextField.getText());
+                resultListView.getSelectionModel().getSelectedItem()
+                        .setType(typeTextField.getText());
             }
             DBConnector.modify(resultListView.getSelectionModel().getSelectedItem());
             resultListView.setItems(FXCollections.observableArrayList(DBConnector.getAll()));
@@ -162,7 +167,9 @@ public class SearchMenuController {
                 if (item.getQuantity() -  sellQuantity>= 0) {
                     item.setQuantity(item.getQuantity() - sellQuantity);
 
-                    SoldItems soldItem = new SoldItems(item.getName(),sellQuantity , item.getPrice(),item.getType(), new Date());
+                    SoldItems soldItem = new SoldItems(
+                            item.getName(),sellQuantity , item.getPrice(),item.getType(), new Date()
+                    );
                     //System.out.println(soldItem);
                     DBConnector.createItem(soldItem);
                     DBConnector.modify(item);

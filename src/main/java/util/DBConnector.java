@@ -27,7 +27,7 @@ public class DBConnector {
     private static EntityManager entityManager;
 
     /**
-     * The logger of the DBConnector class
+     * The logger of the DBConnector class.
      */
     private static Logger logger = LoggerFactory.getLogger("DBConnector logger");
 
