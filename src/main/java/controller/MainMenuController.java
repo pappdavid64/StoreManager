@@ -13,8 +13,7 @@ public class MainMenuController{
      * Navigates to the search menu.
      */
     @FXML
-    private void showSearchMenu()
-    {
+    private void showSearchMenu() {
         MenuLoader.showSearchMenu();
     }
 
@@ -22,8 +21,7 @@ public class MainMenuController{
      * Navigates to the statistics menu.
      */
     @FXML
-    private void showStatisticsMenu()
-    {
+    private void showStatisticsMenu() {
         MenuLoader.showStatisticsMenu();
     }
 
@@ -31,8 +29,7 @@ public class MainMenuController{
      * Close the entity manager and exit from the application.
      */
     @FXML
-    private void exit()
-    {
+    private void exit() {
         DBConnector.closeEntityManager();
         Platform.exit();
     }

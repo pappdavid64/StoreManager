@@ -20,12 +20,10 @@ public class Statistics {
      * The constructor of the class.
      * @param soldItems the sold items from the search
      */
-    public Statistics(ObservableList<SoldItems> soldItems)
-    {
+    public Statistics(ObservableList<SoldItems> soldItems) {
         sumQuantity = 0;
         income = 0;
-        for(SoldItems item : soldItems)
-        {
+        for(SoldItems item : soldItems) {
             sumQuantity += item.getQuantity();
             income += item.getPrice()*item.getQuantity();
         }
@@ -35,8 +33,7 @@ public class Statistics {
      * Gets the sumQuantity.
      * @return the sumQuantity
      */
-    public int getSumQuantity()
-    {
+    public int getSumQuantity() {
         return sumQuantity;
     }
 
@@ -44,8 +41,7 @@ public class Statistics {
      * Gets the income.
      * @return the income
      */
-    public int getIncome()
-    {
+    public int getIncome() {
         return income;
     }
 }

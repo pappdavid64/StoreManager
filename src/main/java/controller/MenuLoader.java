@@ -29,19 +29,15 @@ public class MenuLoader {
      * Sets the primary stage.
      * @param primaryStage the new primary stage
      */
-    public static void setPrimaryStage(Stage primaryStage)
-    {
+    public static void setPrimaryStage(Stage primaryStage) {
         MenuLoader.primaryStage = primaryStage;
     }
 
     /**
      * Navigates to the main menu.
-     * @throws Exception if MainMenu.fxml could not find
      */
-    public static void showMainMenu()
-    {
-        try
-        {
+    public static void showMainMenu() {
+        try {
             FXMLLoader loader = new FXMLLoader();
             MainMenu mm = new MainMenu();
             loader.setLocation(mm.getClass().getResource("/fxml/MainMenu.fxml"));
@@ -70,12 +66,9 @@ public class MenuLoader {
 
     /**
      * Navigates to the search menu.
-     * @throws Exception if the SearchMenu.fxml could not find
      */
-    public static void showSearchMenu()
-    {
-        try
-        {
+    public static void showSearchMenu() {
+        try {
             FXMLLoader loader = new FXMLLoader();
             MainMenu mm = new MainMenu();
             loader.setLocation(mm.getClass().getResource("/fxml/SearchMenu.fxml"));
@@ -96,12 +89,9 @@ public class MenuLoader {
 
     /**
      * Navigates to the statistics menu.
-     * @throws Exception if the StatisticsMenu.fxml could not find
      */
-    public static void showStatisticsMenu()
-    {
-        try
-        {
+    public static void showStatisticsMenu() {
+        try {
             FXMLLoader loader = new FXMLLoader();
             MainMenu mm = new MainMenu();
             loader.setLocation(mm.getClass().getResource("/fxml/StatisticsMenu.fxml"));

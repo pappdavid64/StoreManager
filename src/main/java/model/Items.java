@@ -144,6 +144,7 @@ public class Items implements ItemEntity {
 
     /**
      * The equals() of the Items class.
+     * @param o the object we want to test if equals
      */
     @Override
     public boolean equals(Object o) {
@@ -159,6 +160,7 @@ public class Items implements ItemEntity {
 
     /**
      * The hashCode() of the Items class.
+     * @return the hashcode
      */
     @Override
     public int hashCode() {
@@ -167,6 +169,7 @@ public class Items implements ItemEntity {
 
     /**
      * The toString() of the Items class.
+     * @return the formatted string
      */
     @Override
     public String toString() {

@@ -13,6 +13,14 @@
             <property name="scope" value="public"/>
         </module>
         <module name="JavadocStyle"/>
+        <module name="LineLength">
+            <property name="max" value="300"/>
+        </module>
+        <module name="HiddenField">
+            <property name="ignoreSetter" value="true"/>
+            <property name="tokens" value="VARIABLE_DEF"/>
+        </module>
     </module>
 </module>
+
 

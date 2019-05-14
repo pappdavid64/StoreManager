@@ -67,8 +67,7 @@ public class SearchMenuController {
      * Initializes the resultLitView, the searchChoiceBox and the mightChoiceBox.
      */
     @FXML
-    public void initialize()
-    {
+    public void initialize() {
         ObservableList list = FXCollections.observableList(DBConnector.getAll());
         resultListView.setItems(list);
         searchChoiceBox.setItems(FXCollections.observableArrayList("name", "quantity", "price", "type", "id"));
@@ -80,16 +79,14 @@ public class SearchMenuController {
      * Navigates back to the main menu.
      */
     @FXML
-    private void back()
-    {
+    private void back() {
         MenuLoader.showMainMenu();
     }
 
     /**
      * Searches in the database by the given conditions.
      */
-    public void search()
-    {
+    public void search() {
         resultListView.setItems(
                 FXCollections.observableArrayList(
                         DBConnector.search(searchChoiceBox.getValue(), mightChoiceBox.getValue(),searchTextField.getText())
@@ -100,27 +97,21 @@ public class SearchMenuController {
     /**
      * Modifies the selected item by the given name and/or quantity and/or price and/or type.
      */
-    public void modify()
-    {
-        if(resultListView.getSelectionModel().getSelectedItem() != null)
-        {
-            if(!nameTextField.getText().equals(""))
-            {
+    public void modify() {
+        if(resultListView.getSelectionModel().getSelectedItem() != null) {
+            if(!nameTextField.getText().equals("")) {
                 resultListView.getSelectionModel().getSelectedItem().setName(nameTextField.getText());
             }
 
-            if(!quantityTextField.getText().equals(""))
-            {
+            if(!quantityTextField.getText().equals("")) {
                 resultListView.getSelectionModel().getSelectedItem().setQuantity(Integer.valueOf(quantityTextField.getText()));
             }
 
-            if(!priceTextField.getText().equals(""))
-            {
+            if(!priceTextField.getText().equals("")) {
                 resultListView.getSelectionModel().getSelectedItem().setPrice(Integer.valueOf(priceTextField.getText()));
             }
 
-            if(!typeTextField.getText().equals(""))
-            {
+            if(!typeTextField.getText().equals("")) {
                 resultListView.getSelectionModel().getSelectedItem().setType(typeTextField.getText());
             }
             DBConnector.modify(resultListView.getSelectionModel().getSelectedItem());
@@ -133,10 +124,8 @@ public class SearchMenuController {
     /**
      * Delete the selected item.
      */
-    public void delete()
-    {
-        if(resultListView.getSelectionModel().getSelectedItem() != null)
-        {
+    public void delete() {
+        if(resultListView.getSelectionModel().getSelectedItem() != null) {
             DBConnector.delete(resultListView.getSelectionModel().getSelectedItem());
             resultListView.setItems(FXCollections.observableArrayList(DBConnector.getAll()));
             resultListView.refresh();
@@ -147,15 +136,13 @@ public class SearchMenuController {
     /**
      * Add the item to the database if the name, quantity, price, type field is filled correctly.
      */
-    public void add()
-    {
+    public void add() {
         if(
                 !nameTextField.getText().equals("") &&
                 !quantityTextField.getText().equals("") &&
                 !priceTextField.getText().equals("") &&
                 !typeTextField.getText().equals("")
-        )
-        {
+        ) {
             DBConnector.createItem(new Items(nameTextField.getText(), Integer.valueOf(quantityTextField.getText()),
                     Integer.valueOf(priceTextField.getText()), typeTextField.getText()) );
             resultListView.setItems(FXCollections.observableArrayList(DBConnector.getAll()));
@@ -167,8 +154,7 @@ public class SearchMenuController {
     /**
      * Modifies the selected item quantities by the number in the quantity text field.
      */
-    public void sell()
-    {
+    public void sell() {
         if(resultListView.getSelectionModel().getSelectedItem() != null) {
             if (!quantityTextField.getText().equals("")) {
                 Items item  = resultListView.getSelectionModel().getSelectedItem();

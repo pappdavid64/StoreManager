@@ -35,16 +35,14 @@ public class DBConnector {
      * Gets the entityManager.
      * @return the entityManager
      */
-    public static EntityManager getEntityManager()
-    {
+    public static EntityManager getEntityManager() {
         return entityManager;
     }
 
     /**
      * initialize the entityManagerFactory and the entityManager.
      */
-    public static void initEntityManager()
-    {
+    public static void initEntityManager() {
         entityManagerFactory = Persistence.createEntityManagerFactory("jpa-persistence-unit-1");
         entityManager = entityManagerFactory.createEntityManager();
         logger.info("Entity manager created");
@@ -53,8 +51,7 @@ public class DBConnector {
     /**
      * Close the entityManager and the entityManagerFactory.
      */
-    public static void closeEntityManager()
-    {
+    public static void closeEntityManager() {
         entityManager.close();
         entityManagerFactory.close();
         logger.info("Entity manager closed");
@@ -64,8 +61,7 @@ public class DBConnector {
      * Upload item to the database.
      * @param item the item which want to upload
      */
-    public static void createItem(ItemEntity item)
-    {
+    public static void createItem(ItemEntity item) {
         entityManager.getTransaction().begin();
         entityManager.persist(item);
         entityManager.getTransaction().commit();
@@ -79,8 +75,7 @@ public class DBConnector {
      * @param text the filter of the search
      * @return a list with the found items
      */
-    public static List<Items> search(String column, String operator, String text)
-    {
+    public static List<Items> search(String column, String operator, String text) {
         return new QueryBuilder(Items.class).withColumn(column).withOperator(operator).withText(text).build().getResultList();
     }
 
@@ -88,8 +83,7 @@ public class DBConnector {
      * Find all item in the database.
      * @return a list with all items
      */
-    public static List<Items> getAll()
-    {
+    public static List<Items> getAll() {
         return new QueryBuilder(Items.class).build().getResultList();
     }
 
@@ -97,8 +91,7 @@ public class DBConnector {
      * Modifies an item in the database.
      * @param item the item which want to modify
      */
-    public static void modify(ItemEntity item)
-    {
+    public static void modify(ItemEntity item) {
         entityManager.getTransaction().begin();
         entityManager.merge(item);
         entityManager.getTransaction().commit();
@@ -109,8 +102,7 @@ public class DBConnector {
      * Delete an item in the database.
      * @param item the item which want to delete from the database
      */
-    public static void delete(ItemEntity item)
-    {
+    public static void delete(ItemEntity item) {
         entityManager.getTransaction().begin();
         entityManager.remove(item);
         entityManager.getTransaction().commit();

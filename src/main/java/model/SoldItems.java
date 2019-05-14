@@ -148,7 +148,7 @@ public class SoldItems implements ItemEntity {
 
     /**
      * Sets the price of the item.
-     * @param the new price of the item
+     * @param price the new price of the item
      */
     public void setPrice(int price) {
         this.price = price;
@@ -172,6 +172,7 @@ public class SoldItems implements ItemEntity {
 
     /**
      * The toString() for the SoldItems class.
+     * @return the formatted string
      */
     @Override
     public String toString() {
@@ -186,6 +187,7 @@ public class SoldItems implements ItemEntity {
 
     /**
      * The equals() for the SoldItems class.
+     * @param o the object we want to test equals
      */
     @Override
     public boolean equals(Object o) {
@@ -202,6 +204,7 @@ public class SoldItems implements ItemEntity {
 
     /**
      * The hashCode() for the SoldItemsClass.
+     * @return the hascode
      */
     @Override
     public int hashCode() {

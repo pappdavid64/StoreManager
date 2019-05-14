@@ -1,6 +1,6 @@
 package view;
 
-import controller.*;
+import controller.MenuLoader;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -17,7 +17,7 @@ public class MainMenu extends Application {
       * @see javafx.application.Application#start(javafx.stage.Stage).
       */
     @Override
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) {
         primaryStage.setTitle("Store Manager");
         MenuLoader.setPrimaryStage(primaryStage);
         MenuLoader.showMainMenu();
@@ -25,8 +25,7 @@ public class MainMenu extends Application {
         DBConnector.initEntityManager();
 
         primaryStage.setOnCloseRequest(
-                (WindowEvent e) ->
-                {
+                (WindowEvent e) -> {
                     DBConnector.closeEntityManager();
                 }
         );

@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Util class for building queries.
+ * @param <T> class that extends ItemEntity
  */
 public class QueryBuilder<T extends ItemEntity> {
 
@@ -40,8 +41,7 @@ public class QueryBuilder<T extends ItemEntity> {
      * Constructor of the QueryBuilder class.
      * @param itemType the class type of the item
      */
-    public QueryBuilder(Class<T> itemType)
-    {
+    public QueryBuilder(Class<T> itemType) {
         this.itemType = itemType;
         queries = new ArrayList<>();
     }
@@ -51,8 +51,7 @@ public class QueryBuilder<T extends ItemEntity> {
      * @param column the column name of the search
      * @return the actual object
      */
-    public QueryBuilder<T> withColumn(String column)
-    {
+    public QueryBuilder<T> withColumn(String column) {
         this.column = column;
         return this;
     }
@@ -62,8 +61,7 @@ public class QueryBuilder<T extends ItemEntity> {
      * @param operator the operator of the search
      * @return the actual object
      */
-    public QueryBuilder<T> withOperator(String operator)
-    {
+    public QueryBuilder<T> withOperator(String operator) {
         this.operator = operator;
         return this;
     }
@@ -73,8 +71,7 @@ public class QueryBuilder<T extends ItemEntity> {
      * @param text the filter of the search
      * @return the actual object
      */
-    public QueryBuilder<T> withText(String text)
-    {
+    public QueryBuilder<T> withText(String text) {
         this.text = text;
         return this;
     }
@@ -84,8 +81,7 @@ public class QueryBuilder<T extends ItemEntity> {
      * @param queries the another queries to concat
      * @return the actual object
      */
-    public QueryBuilder<T> andQueries(List<QueryBuilder<T>> queries)
-    {
+    public QueryBuilder<T> andQueries(List<QueryBuilder<T>> queries) {
         this.queries.addAll(queries);
         return this;
     }
@@ -95,8 +91,7 @@ public class QueryBuilder<T extends ItemEntity> {
      * @param queries the another queries to concat
      * @return the actual object
      */
-    public QueryBuilder<T> andQueries(QueryBuilder<T>... queries)
-    {
+    public QueryBuilder<T> andQueries(QueryBuilder<T>... queries) {
         this.queries.addAll(Arrays.asList(queries));
         return this;
     }
@@ -105,16 +100,15 @@ public class QueryBuilder<T extends ItemEntity> {
      * Builds the where condition of the search.
      * @return the where condition as string
      */
-    private String buildWhereString()
-    {
-        if(column == null || text == null)
+    private String buildWhereString() {
+        if (column == null || text == null) {
             return null;
+        }
 
         StringBuilder sb = new StringBuilder();
         sb.append(" s." + column);
 
-        switch (column)
-        {
+        switch (column) {
             case "name":
                 sb.append(" LIKE '%" + text + "%'");
                 break;
@@ -134,27 +128,23 @@ public class QueryBuilder<T extends ItemEntity> {
      * Builds the query string.
      * @return the query string
      */
-    private String buildQueryString()
-    {
+    private String buildQueryString() {
+
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT s FROM " +  itemType.getSimpleName() +  " s");
 
-        if(column == null || text == null)
-        {
-            if(queries.isEmpty())
+        if (column == null || text == null) {
+            if (queries.isEmpty()) {
                 return sb.toString();
-            else
-            {
-                return queries.get(0).andQueries(queries.subList(1,queries.size())).buildQueryString();
+            } else {
+                return queries.get(0).andQueries(queries.subList(1, queries.size())).buildQueryString();
             }
         }
         sb.append(" WHERE " + buildWhereString());
 
-        for(QueryBuilder<T> query : queries)
-        {
+        for (QueryBuilder<T> query : queries) {
             String whereClause = query.buildWhereString();
-            if(whereClause != null)
-            {
+            if (whereClause != null) {
                 sb.append(" AND " + whereClause);
             }
         }
@@ -163,10 +153,9 @@ public class QueryBuilder<T extends ItemEntity> {
 
     /**
      * Builds the search.
-     * @return the TypedQuery<T>
+     * @return the TypedQuery
      */
-    public TypedQuery<T> build()
-    {
+    public TypedQuery<T> build() {
         return DBConnector.getEntityManager().createQuery(buildQueryString(), itemType);
     }
 

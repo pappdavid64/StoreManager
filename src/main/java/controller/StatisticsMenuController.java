@@ -16,8 +16,7 @@ public class StatisticsMenuController {
      * Initializes the searchTypeChoiceBox.
      */
     @FXML
-    public void initialize()
-    {
+    public void initialize() {
         searchTypeChoiceBox.setItems(FXCollections.observableArrayList("name", "type"));
     }
 
@@ -25,16 +24,14 @@ public class StatisticsMenuController {
      * Navigates back to the main menu.
      */
     @FXML
-    private void back()
-    {
+    private void back() {
         MenuLoader.showMainMenu();
     }
 
     /**
      * Sets the summary label with the statistics from the search.
      */
-    private void setSummaryLabel()
-    {
+    private void setSummaryLabel() {
         Statistics stats = new Statistics(resultListView.getItems());
         summaryLabel.setText(
                 "All sold items quantity: " + stats.getSumQuantity() + "\n" +
@@ -45,26 +42,28 @@ public class StatisticsMenuController {
     /**
      * Search in the database by the given conditions.
      */
-    public void search()
-    {
+    public void search() {
         QueryBuilder<SoldItems> firstQuery =
                 new QueryBuilder<>(SoldItems.class)
                         .withColumn(searchTypeChoiceBox.getValue())
                         .withText(searchTextField.getText());
+
         QueryBuilder<SoldItems> secondQuery =
                 new QueryBuilder<>(SoldItems.class)
                         .withColumn("soldDate").withOperator(">=");
-        if(fromDatePicker.getValue() != null)
-        {
+
+        if(fromDatePicker.getValue() != null) {
             secondQuery.withText(fromDatePicker.getValue().toString());
         }
+
         QueryBuilder<SoldItems> thirdQuery =
                 new QueryBuilder<>(SoldItems.class)
                         .withColumn("soldDate").withOperator("<=");
-        if(toDatePicker.getValue() != null)
-        {
+
+        if(toDatePicker.getValue() != null) {
             thirdQuery.withText(toDatePicker.getValue().toString());
         }
+
         resultListView.setItems(FXCollections.observableArrayList(
                 new QueryBuilder<SoldItems>(SoldItems.class).andQueries(firstQuery, secondQuery, thirdQuery).build().getResultList())
         );
