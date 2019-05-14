@@ -13,16 +13,16 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 /**
- * The class which connects to the database
+ * The class which connects to the database.
  */
 public class DBConnector {
     /**
-     * The entity manager factory of the project
+     * The entity manager factory of the project.
      */
     private static EntityManagerFactory entityManagerFactory;
 
     /**
-     * The entity manager of the project
+     * The entity manager of the project.
      */
     private static EntityManager entityManager;
 
@@ -32,7 +32,7 @@ public class DBConnector {
     private static Logger logger = LoggerFactory.getLogger("DBConnector logger");
 
     /**
-     * Gets the entityManager
+     * Gets the entityManager.
      * @return the entityManager
      */
     public static EntityManager getEntityManager()
@@ -41,7 +41,7 @@ public class DBConnector {
     }
 
     /**
-     * initialize the entityManagerFactory and the entityManager
+     * initialize the entityManagerFactory and the entityManager.
      */
     public static void initEntityManager()
     {
@@ -51,7 +51,7 @@ public class DBConnector {
     }
 
     /**
-     * Close the entityManager and the entityManagerFactory
+     * Close the entityManager and the entityManagerFactory.
      */
     public static void closeEntityManager()
     {
@@ -61,7 +61,7 @@ public class DBConnector {
     }
 
     /**
-     * Upload item to the database
+     * Upload item to the database.
      * @param item the item which want to upload
      */
     public static void createItem(ItemEntity item)
@@ -73,7 +73,7 @@ public class DBConnector {
     }
 
     /**
-     * Search in the database
+     * Search in the database.
      * @param column the column name of the search
      * @param operator the operator of the search
      * @param text the filter of the search
@@ -85,7 +85,7 @@ public class DBConnector {
     }
 
     /**
-     * Find all item in the database
+     * Find all item in the database.
      * @return a list with all items
      */
     public static List<Items> getAll()
@@ -94,7 +94,7 @@ public class DBConnector {
     }
 
     /**
-     * Modifies an item in the database
+     * Modifies an item in the database.
      * @param item the item which want to modify
      */
     public static void modify(ItemEntity item)
@@ -106,7 +106,7 @@ public class DBConnector {
     }
 
     /**
-     * Delete an item in the database
+     * Delete an item in the database.
      * @param item the item which want to delete from the database
      */
     public static void delete(ItemEntity item)

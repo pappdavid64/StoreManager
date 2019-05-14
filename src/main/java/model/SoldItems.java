@@ -7,13 +7,13 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * Class with information about sold items
+ * Class with information about sold items.
  */
 @Entity
 public class SoldItems implements ItemEntity {
 
     /**
-     * The id of the item
+     * The id of the item.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,45 +21,45 @@ public class SoldItems implements ItemEntity {
 
 
     /**
-    * The name of the item
+    * The name of the item.
     */
     @Column(name = "Name")
     private String name;
 
 
     /**
-     * The type of the item
+     * The type of the item.
      */
     @Column(name = "Type")
     private String type;
 
     /**
-     * The quantity of the item
+     * The quantity of the item.
      */
     @Column(name = "Quantity")
     private int quantity;
 
     /**
-     * The price of the item
+     * The price of the item.
      */
     @Column(name = "Price")
     private int price;
 
     /**
-     * The sold date of the item
+     * The sold date of the item.
      */
     @Column(name = "Sold_date")
     private Date soldDate;
 
     /**
-     * Constructor of the class
+     * Constructor of the class.
      */
     public SoldItems() {
     }
 
 
     /**
-     * Constructor of the class
+     * Constructor of the class.
      * @param name the name of the item
      * @param quantity the quantity of the item
      * @param price the price of the item
@@ -75,7 +75,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Gets the id of the item
+     * Gets the id of the item.
      * @return the id of the item
      */
     public int getId() {
@@ -83,7 +83,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Sets the id of the item
+     * Sets the id of the item.
      * @param id the new id of the item
      */
     public void setId(int id) {
@@ -91,7 +91,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Gets the name of the item
+     * Gets the name of the item.
      * @return the name of the item
      */
     public String getName() {
@@ -99,7 +99,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Sets the name of the item
+     * Sets the name of the item.
      * @param name the new name of the item
      */
     public void setName(String name) {
@@ -107,7 +107,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Gets the type of the item
+     * Gets the type of the item.
      * @return the type of the item
      */
     public String getType() {
@@ -115,7 +115,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Sets the type of the item
+     * Sets the type of the item.
      * @param type the new type of the item
      */
     public void setType(String type) {
@@ -123,7 +123,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Gets the quantity of the item
+     * Gets the quantity of the item.
      * @return the quantity of the item
      */
     public int getQuantity() {
@@ -131,7 +131,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Sets the quantity of the item
+     * Sets the quantity of the item.
      * @param quantity the new quantity of the item
      */
     public void setQuantity(int quantity) {
@@ -139,7 +139,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     *Gets the price of the item
+     *Gets the price of the item.
      * @return the price of the item
      */
     public int getPrice() {
@@ -147,7 +147,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Sets the price of the item
+     * Sets the price of the item.
      * @param the new price of the item
      */
     public void setPrice(int price) {
@@ -155,7 +155,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Gets the sold date of the item
+     * Gets the sold date of the item.
      * @return the sold date of the item
      */
     public Date getSoldDate() {
@@ -163,7 +163,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * Sets the sold date of the item
+     * Sets the sold date of the item.
      * @param soldDate the new sold date of the item
      */
     public void setSoldDate(Date soldDate) {
@@ -171,7 +171,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * The toString() for the SoldItems class
+     * The toString() for the SoldItems class.
      */
     @Override
     public String toString() {
@@ -185,7 +185,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * The equals() for the SoldItems class
+     * The equals() for the SoldItems class.
      */
     @Override
     public boolean equals(Object o) {
@@ -201,7 +201,7 @@ public class SoldItems implements ItemEntity {
     }
 
     /**
-     * The hashCode() for the SoldItemsClass
+     * The hashCode() for the SoldItemsClass.
      */
     @Override
     public int hashCode() {

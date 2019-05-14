@@ -3,21 +3,21 @@ package model;
 import javafx.collections.ObservableList;
 
 /**
- * Class for get statistics from the searches in the SearchMenu
+ * Class for get statistics from the searches in the StatisticsMenu.
  */
 public class Statistics {
     /**
-     * The summary of quantity of the sold items in the found items
+     * The summary of quantity of the sold items in the found items.
      */
     private int sumQuantity;
 
     /**
-     * The income from the found items
+     * The income from the found items.
      */
     private int income;
 
     /**
-     * The constructor of the class
+     * The constructor of the class.
      * @param soldItems the sold items from the search
      */
     public Statistics(ObservableList<SoldItems> soldItems)
@@ -32,7 +32,7 @@ public class Statistics {
     }
 
     /**
-     * Gets the sumQuantity
+     * Gets the sumQuantity.
      * @return the sumQuantity
      */
     public int getSumQuantity()
@@ -41,7 +41,7 @@ public class Statistics {
     }
 
     /**
-     * Gets the income
+     * Gets the income.
      * @return the income
      */
     public int getIncome()

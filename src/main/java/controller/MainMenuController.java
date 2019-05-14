@@ -5,12 +5,12 @@ import javafx.fxml.FXML;
 import util.DBConnector;
 
 /**
- * Controller class for the main menu
+ * Controller class for the main menu.
  */
 public class MainMenuController{
 
     /**
-     * Navigates to the search menu
+     * Navigates to the search menu.
      */
     @FXML
     private void showSearchMenu()
@@ -19,7 +19,7 @@ public class MainMenuController{
     }
 
     /**
-     * Navigates to the statistics menu
+     * Navigates to the statistics menu.
      */
     @FXML
     private void showStatisticsMenu()
@@ -28,7 +28,7 @@ public class MainMenuController{
     }
 
     /**
-     * Close the entity manager and exit from the application
+     * Close the entity manager and exit from the application.
      */
     @FXML
     private void exit()

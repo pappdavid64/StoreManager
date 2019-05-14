@@ -8,13 +8,13 @@ import util.DBConnector;
 
 
 /**
- * Entry class of the application
+ * Entry class of the application.
  */
 public class MainMenu extends Application {
 
 
     /* (non-Javadoc)
-      * @see javafx.application.Application#start(javafx.stage.Stage)
+      * @see javafx.application.Application#start(javafx.stage.Stage).
       */
     @Override
     public void start(Stage primaryStage){

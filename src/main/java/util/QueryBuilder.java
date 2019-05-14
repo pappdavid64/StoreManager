@@ -7,37 +7,37 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Util class for building queries
+ * Util class for building queries.
  */
 public class QueryBuilder<T extends ItemEntity> {
 
     /**
-      * The column name in the database which want to search in
+      * The column name in the database which want to search in.
       */
     private String column;
 
     /**
-      * The operator (lower, equal, bigger) for numbers in the search
+      * The operator (lower, equal, bigger) for numbers in the search.
       */
     private String operator;
 
     /**
-      * The filter text which we want to find in the database
+      * The filter text which we want to find in the database.
       */
     private String text;
 
     /**
-     * List of queries for concatenate multiply queries
+     * List of queries for concatenate multiply queries.
      */
     private List<QueryBuilder<T>> queries;
 
     /**
-     * The class type of the item
+     * The class type of the item.
      */
     private Class<T> itemType;
 
     /**
-     * Constructor of the QueryBuilder class
+     * Constructor of the QueryBuilder class.
      * @param itemType the class type of the item
      */
     public QueryBuilder(Class<T> itemType)
@@ -47,7 +47,7 @@ public class QueryBuilder<T extends ItemEntity> {
     }
 
     /**
-     * Sets the column field of the object
+     * Sets the column field of the object.
      * @param column the column name of the search
      * @return the actual object
      */
@@ -58,7 +58,7 @@ public class QueryBuilder<T extends ItemEntity> {
     }
 
     /**
-     * Sets the operator field of the object
+     * Sets the operator field of the object.
      * @param operator the operator of the search
      * @return the actual object
      */
@@ -69,7 +69,7 @@ public class QueryBuilder<T extends ItemEntity> {
     }
 
     /**
-     * Sets the text field of the object
+     * Sets the text field of the object.
      * @param text the filter of the search
      * @return the actual object
      */
@@ -80,7 +80,7 @@ public class QueryBuilder<T extends ItemEntity> {
     }
 
     /**
-     * Sets the queries field of the object
+     * Sets the queries field of the object.
      * @param queries the another queries to concat
      * @return the actual object
      */
@@ -91,7 +91,7 @@ public class QueryBuilder<T extends ItemEntity> {
     }
 
     /**
-     * Sets the queries field of the object
+     * Sets the queries field of the object.
      * @param queries the another queries to concat
      * @return the actual object
      */
@@ -102,7 +102,7 @@ public class QueryBuilder<T extends ItemEntity> {
     }
 
     /**
-     * Builds the where condition of the search
+     * Builds the where condition of the search.
      * @return the where condition as string
      */
     private String buildWhereString()
@@ -131,7 +131,7 @@ public class QueryBuilder<T extends ItemEntity> {
     }
 
     /**
-     * Builds the query string
+     * Builds the query string.
      * @return the query string
      */
     private String buildQueryString()
@@ -162,7 +162,7 @@ public class QueryBuilder<T extends ItemEntity> {
     }
 
     /**
-     * Builds the search
+     * Builds the search.
      * @return the TypedQuery<T>
      */
     public TypedQuery<T> build()

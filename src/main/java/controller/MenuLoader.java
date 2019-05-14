@@ -11,21 +11,21 @@ import view.MainMenu;
 import java.io.IOException;
 
 /**
- * Class for loading menus
+ * Class for loading menus.
  */
 public class MenuLoader {
     /**
-     * The primary stage of the application
+     * The primary stage of the application.
      */
     private static Stage primaryStage;
 
     /**
-     * The logger of the MenuLoader class
+     * The logger of the MenuLoader class.
      */
     private static Logger logger = LoggerFactory.getLogger("Menu Loader Logger");
 
     /**
-     * Sets the primary stage
+     * Sets the primary stage.
      * @param primaryStage the new primary stage
      */
     public static void setPrimaryStage(Stage primaryStage)
@@ -34,7 +34,7 @@ public class MenuLoader {
     }
 
     /**
-     * Navigates to the main menu
+     * Navigates to the main menu.
      * @throws Exception if MainMenu.fxml could not find
      */
     public static void showMainMenu()
@@ -59,7 +59,7 @@ public class MenuLoader {
     }
 
     /**
-     * Navigates to the search menu
+     * Navigates to the search menu.
      * @throws Exception if the SearchMenu.fxml could not find
      */
     public static void showSearchMenu()
@@ -84,7 +84,7 @@ public class MenuLoader {
     }
 
     /**
-     * Navigates to the statistics menu
+     * Navigates to the statistics menu.
      * @throws Exception if the StatisticsMenu.fxml could not find
      */
     public static void showStatisticsMenu()
