@@ -179,8 +179,8 @@ public class SoldItems implements ItemEntity {
                 "type='" + type + '\'' +
                 ", quantity=" + quantity +
                 ", price=" + price +
-                ", soldDate=" + soldDate +
-                "Id=" + Id +
+                ", id=" + Id +
+                ", sold date=" + soldDate +
                 ")";
     }
 
