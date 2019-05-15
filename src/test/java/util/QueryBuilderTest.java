@@ -1,3 +1,5 @@
+package util;
+
 import model.Items;
 import model.SoldItems;
 import util.DBConnector;
@@ -10,6 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class QueryBuilderTest {
+
+
 
     @Before
     public void initEntityManager()

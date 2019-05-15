@@ -1,6 +1,6 @@
+package model;
+
 import javafx.collections.FXCollections;
-import model.SoldItems;
-import model.Statistics;
 import org.junit.*;
 import org.junit.Test;
 
